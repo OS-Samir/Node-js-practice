@@ -2,5 +2,5 @@
 //arrays and objects
 // funcitons return
 // async js coding
-
-var arr 
+//forEach, map, filter, find, indexOf
+var arr = [1, 2, 3, 4];
