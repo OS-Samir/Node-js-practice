@@ -34,3 +34,8 @@
 //    if(val === 12) return val;
 // })
 // console.log(ans)
+
+let arr = [1, 2, 3, 4]
+
+let ans = arr.indexOf(5)
+console.log(ans)
