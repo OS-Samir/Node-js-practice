@@ -35,7 +35,23 @@
 // })
 // console.log(ans)
 
-let arr = [1, 2, 3, 4]
+// let arr = [1, 2, 3, 4]
 
-let ans = arr.indexOf(5)
-console.log(ans)
+// let ans = arr.indexOf(5)
+// console.log(ans)
+
+
+// js objects are called key value pairs\
+
+
+let obj = {
+   name: "Samir",
+   age: 24
+}
+// Object.freeze(obj)
+// let ans = obj["name"] || obj.name
+
+// console.log(ans)
+obj.name = "Rahul";
+
+console.log(obj)
