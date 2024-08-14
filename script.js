@@ -18,3 +18,12 @@
 //    return 13;
 // })
 // console.log(ans)
+
+// let arr = [1, 2, 3, 4]
+// let ans = arr.filter(function(val){
+//    if(val >= 12) {
+//       return true;
+//    }
+//    else return false;
+// })
+// console.log(ans)
