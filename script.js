@@ -27,3 +27,10 @@
 //    else return false;
 // })
 // console.log(ans)
+
+// let arr = [1, 2, 3, 4]
+
+// let ans = arr.find(function(val){
+//    if(val === 12) return val;
+// })
+// console.log(ans)
