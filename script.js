@@ -56,8 +56,9 @@
 
 // console.log(obj)
 
-function abcd() {
-   return 12;
-}
+// function abcd() {
+//    return 12;
+// }
 
-console.log(abcd())
+// console.log(abcd())
+
