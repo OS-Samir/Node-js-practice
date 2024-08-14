@@ -11,8 +11,10 @@
 // })
 
 
-var arr = [1, 2, 3 ,4]
+// let arr = [1, 2, 3 ,4]
 
-arr.map(function(val){
-   console.log(val + 2);
-})
+// let ans = arr.map(function(val){
+//    // console.log(val ** arr.length);
+//    return 13;
+// })
+// console.log(ans)
