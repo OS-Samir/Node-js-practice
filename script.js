@@ -44,14 +44,20 @@
 // js objects are called key value pairs\
 
 
-let obj = {
-   name: "Samir",
-   age: 24
+// let obj = {
+//    name: "Samir",
+//    age: 24
+// }
+// // Object.freeze(obj)
+// // let ans = obj["name"] || obj.name
+
+// // console.log(ans)
+// obj.name = "Rahul";
+
+// console.log(obj)
+
+function abcd() {
+   return 12;
 }
-// Object.freeze(obj)
-// let ans = obj["name"] || obj.name
 
-// console.log(ans)
-obj.name = "Rahul";
-
-console.log(obj)
+console.log(abcd())
