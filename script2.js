@@ -38,9 +38,18 @@
 // })
 
 //copyFile
-const fs = require('node:fs');
-fs.copyFile("samir1.txt", "./copy/copy.txt", function(err){
-    if (err) throw err;
-    else console.log("done!");
+// const fs = require('node:fs');
+// fs.copyFile("samir1.txt", "./copy/copy.txt", function(err){
+//     if (err) throw err;
+//     else console.log("done!");
 
+// })
+
+
+//unlink
+const fs = require("node:fs") 
+
+fs.unlink("./copy/copy.txt", function(err) {
+    if (err) throw err.message;
+    else console.log("done!");
 })
