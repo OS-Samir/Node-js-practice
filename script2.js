@@ -22,11 +22,19 @@
 
 
 //appendFile
+// const fs = require('node:fs');
+// fs.appendFile("samir.txt", " ma thik chu dost", function(err) {
+//     if (err) {
+//         throw err;
+//     }
+//     else console.log("done!");
+// })
 
+// renameFile
 const fs = require('node:fs');
-fs.appendFile("samir.txt", " ma thik chu dost", function(err) {
-    if (err) {
-        throw err;
-    }
+fs.rename("samir.txt", "samir1.txt" , function (err) {
+    if (err) throw err;
     else console.log("done!");
+    
+    
 })
