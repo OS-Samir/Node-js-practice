@@ -31,10 +31,16 @@
 // })
 
 // renameFile
+// const fs = require('node:fs');
+// fs.rename("samir.txt", "samir1.txt" , function (err) {
+//     if (err) throw err;
+//     else console.log("done!");  
+// })
+
+//copyFile
 const fs = require('node:fs');
-fs.rename("samir.txt", "samir1.txt" , function (err) {
+fs.copyFile("samir1.txt", "./copy/copy.txt", function(err){
     if (err) throw err;
     else console.log("done!");
-    
-    
+
 })
