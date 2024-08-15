@@ -24,7 +24,7 @@
 //appendFile
 
 const fs = require('node:fs');
-fs.appendFile("samir.txt", "ma thik chu dost", function(err) {
+fs.appendFile("samir.txt", " ma thik chu dost", function(err) {
     if (err) {
         throw err;
     }
