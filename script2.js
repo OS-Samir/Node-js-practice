@@ -47,9 +47,19 @@
 
 
 //unlink
-const fs = require("node:fs") 
+// const fs = require("node:fs") 
 
-fs.unlink("./copy/copy.txt", function(err) {
-    if (err) throw err.message;
-    else console.log("done!");
-})
+// fs.unlink("./copy/copy.txt", function(err) {
+//     if (err) throw err.message;
+//     else console.log("done!");
+// })
+
+
+
+//rmDir (in default state it will delete empty directory but not directories with file(s))
+// const fs = require("node:fs")
+
+// fs.rmdir("./copy", {recursive: true}, function(err) {
+//     if (err) console.error(err);
+//     else console.log("done")
+// })
