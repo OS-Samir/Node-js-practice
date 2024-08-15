@@ -63,3 +63,13 @@
 //     if (err) console.error(err);
 //     else console.log("done")
 // })
+
+
+
+// mkDir
+// const fs = require("node:fs")
+
+// fs.mkdir("./copy", function(err) {
+//     if (err) throw err;
+//     else console.log("done")
+// })
