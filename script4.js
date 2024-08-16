@@ -7,7 +7,7 @@
 // Request and response handling
 // Error handling
 
-
+// Express
 const express = require('express');
 const app = express();
 
@@ -16,6 +16,6 @@ app.get("/", function(req, res) {
 } )
 
 app.get("/profile", function(req, res) {
-    res.send("samir is a champion")
+    res.send("samiir is a champion")
 })
 app.listen(3000);
