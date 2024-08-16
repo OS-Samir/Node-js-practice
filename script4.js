@@ -13,7 +13,8 @@ const app = express();
 
 //Appying middleware
 app.use(function(req, res, next){
-
+    console.log("Middleware is running");
+    next();
 }); 
 
 app.get("/", function(req, res) {
