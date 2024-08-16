@@ -3,7 +3,7 @@
 // Express manages everything from receiving the request and giving the response
 // Setting up a basic expression application
 // Routing
-// Middleware
+// Middleware //When we perform some task before the server accept the request and reaching to route we stop the task and do something.Then this element is called middleware.
 // Request and response handling
 // Error handling
 
