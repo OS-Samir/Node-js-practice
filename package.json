@@ -9,6 +9,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "accessibility": "^3.0.9",
     "one-liner-joke": "^1.2.2"
   }
 }
