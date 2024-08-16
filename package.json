@@ -1,11 +1,14 @@
 {
   "name": "node.js-practice",
   "version": "1.0.0",
-  "main": "script2.js",
+  "main": "script3.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "one-liner-joke": "^1.2.2"
+  }
 }
