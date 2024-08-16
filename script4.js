@@ -29,5 +29,15 @@ app.get("/about", function(req, res) {
     res.send("This is about us page")
 } )
 
+// way to use error handler
+app.get("/profile", function(req, res, next){
+    return next(new Error("something went wrong"));
+})
+
+//Error handler
+app.use((err, req, res, next) => {
+    console.error(err.stack)
+    res.status(500).send('something broke')
+})
 
 app.listen(3000);
