@@ -17,8 +17,16 @@ app.use(function(req, res, next){
     next();
 }); 
 
+app.use(function(req, res, next) {
+    console.log("Middleware for about");
+    next();
+})
 app.get("/", function(req, res) {
-    res.send("my name is samir")
+    res.send("my name is samir");
+} )
+
+app.get("/about", function(req, res) {
+    res.send("This is about us page")
 } )
 
 
