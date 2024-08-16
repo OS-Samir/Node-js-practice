@@ -11,11 +11,14 @@
 const express = require('express');
 const app = express();
 
+//Appying middleware
+app.use(function(req, res, next){
+
+}); 
+
 app.get("/", function(req, res) {
     res.send("my name is samir")
 } )
 
-app.get("/profile", function(req, res) {
-    res.send("samiir is a champion")
-})
+
 app.listen(3000);
