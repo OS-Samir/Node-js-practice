@@ -6,10 +6,13 @@
 // Middleware //When we perform some task before the server accept the request and reaching to route we stop the task and do something.Then this element is called middleware.
 // Request and response handling
 // Error handling
-
+//Form handling and working with forms
 // Express
 const express = require('express');
 const app = express();
+
+app.use(express.json());
+app.use(express.urlencoded({extended: true}))
 
 //Appying middleware
 app.use(function(req, res, next){
