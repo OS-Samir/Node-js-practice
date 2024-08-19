@@ -25,6 +25,13 @@ app.get("/", function (req, res) {
     res.render("index")
 })
 
+app.get("/profile/samir", function (req, res) {
+    // res.render("index")
+    
+    res.send("chaleko cha")
+
+})
+
 app.listen(3000, function() {
     console.log("its running") 
 })
