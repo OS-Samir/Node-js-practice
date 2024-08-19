@@ -32,6 +32,13 @@ app.get("/profile/:username", function (req, res) { // To implement dynamic rout
 
 })
 
+app.get("/author/:username/:age", function (req, res) { // To implement dynamic routing we have to add : before routing
+    res.send(`welcome, ${req.params.username} of age ${req.params.age}`)
+    // res.render("index")
+    // res.send("chaleko cha hai ta")
+
+})
+
 app.listen(3000, function() {
     console.log("its running") 
 })
