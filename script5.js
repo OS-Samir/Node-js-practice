@@ -26,8 +26,9 @@ app.get("/", function (req, res) {
 })
 
 app.get("/profile/:username", function (req, res) { // To implement dynamic routing we have to add : before routing
+    res.send(req.params.username)
     // res.render("index")
-    res.send("chaleko cha")
+    // res.send("chaleko cha")
 
 })
 
