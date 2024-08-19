@@ -27,7 +27,6 @@ app.get("/", function (req, res) {
 
 app.get("/profile/samir", function (req, res) {
     // res.render("index")
-    
     res.send("chaleko cha")
 
 })
