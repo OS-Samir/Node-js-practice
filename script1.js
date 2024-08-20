@@ -4,6 +4,8 @@
 // async js coding
 //forEach, map, filter, find, indexOf
 
+
+
 // var arr = [1, 2, 3, 4]
 
 // arr.forEach(function (val){
@@ -62,9 +64,18 @@
 
 // console.log(abcd())
 
-async function abcd() {
-  var blob =  await fetch(`https://randomuser.me/api/`)
-  var ans = await blob.json()
-  console.log(ans.results[0].name)
-} 
-abcd();
+// async function abcd() {
+//   var blob =  await fetch(`https://randomuser.me/api/`)
+//   var ans = await blob.json()
+//   console.log(ans.results[0].name)
+// } 
+// abcd();
+
+
+// Practice
+
+// let arr = [45, 60, 70, 40, "samir", "Rohit"]
+
+// arr.map(function(val) {
+//   console.log(val ++,5)
+// })
