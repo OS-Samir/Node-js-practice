@@ -79,3 +79,26 @@
 // arr.map(function(val) {
 //   console.log(val ++,5)
 // })
+
+
+
+
+// let arr = [1, 2, 3, 4]
+// let ans = arr.filter(function(val){
+//    if(val >= 3) {
+//       return true;
+//    }
+//    else return false;
+// })
+// console.table(ans)
+
+
+
+// async function abcd() {
+//   var blob =  await fetch(`https://randomuser.me/api/`)
+//   var ans = await blob.json()
+//   console.table(ans.results.name)
+// } 
+// abcd();
+
+
