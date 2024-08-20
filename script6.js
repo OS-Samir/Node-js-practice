@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const express = require('path');
+const path = require('path');
 
 
 app.set("view engine", "ejs");
