@@ -1,7 +1,7 @@
 {
   "name": "node.js-practice",
   "version": "1.0.0",
-  "main": "script6cle.js",
+  "main": "script6.js",
   "dependencies": {
     "accepts": "^1.3.8",
     "accessibility": "^3.0.9",
