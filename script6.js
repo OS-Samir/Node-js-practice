@@ -13,7 +13,7 @@ app.get('/', function (req, res) {
     fs.readdir(`./files`, function (err, files) {
         res.render('index', {files: files});
     })
-    // res.send("welcome");
+
    
 })
 
@@ -23,6 +23,15 @@ app.post('/create', function (req, res) {
         })
     })
     
+
+    app.get('/file/:filename', function (req, res) {
+       fs.readFile(`./files/${req.params.filename}`, "utf-8", function(err, filedata){
+        if (err) throw err.message
+        else res.render('show')
+       })
+    
+       
+    })
 
 
 app.listen(3000);
