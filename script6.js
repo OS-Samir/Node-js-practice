@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const path = require("path");
 const fs = require("fs");
+const { log } = require('console');
 
 
 app.set("view engine", "ejs");
@@ -37,6 +38,14 @@ app.post('/create', function (req, res) {
       res.render('edit', {filename: req.params.filename});
         
      })
+
+     app.post('/edit', function (req, res) {
+       fs.rename(`./files/${req.body.previous}`, `./files/${req.body.new}`, function (err){
+
+        res.redirect('/' )
+       })
+          
+       })
  
 
 
