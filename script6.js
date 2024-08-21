@@ -33,5 +33,11 @@ app.post('/create', function (req, res) {
        
     })
 
+    app.get('/edit/:filename', function (req, res) {
+      res.render('edit');
+        
+     })
+ 
+
 
 app.listen(3000);
