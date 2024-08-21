@@ -22,8 +22,7 @@ app.post('/create', function (req, res) {
             res.redirect('/')
         })
     })
-    // res.send("welcome");
-   
+    
 
 
 app.listen(3000);
