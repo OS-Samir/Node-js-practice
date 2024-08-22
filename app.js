@@ -32,9 +32,14 @@ app.get('/update', async (req,res) => {
  
  app.get('/read', async  (req,res) =>  {
 
- let users = await userModel.findOne({username: "suraj" }); //find() read and search all users //find gives object while fineone gives array
+ let users = await userModel.find(); //find() read and search all users //find gives object while fineone gives array
  res.send(users);
 })
 
+app.get('/delete', async  (req,res) =>  {
+
+    let deleteUsers = await userModel.findOneAndDelete({username: "suraj" }); 
+    res.send(deleteUsers);
+   })
 
 app.listen(3000)
