@@ -23,4 +23,12 @@ app.get('/create', async (req,res) => {
 })
 
 
+
+app.get('/update', async (req,res) => {
+        // userModel.findOneAndUpdate(findOne, update, {new: true}) 
+     let updatedUser = await userModel.findOneAndUpdate({username: "samir"}, {name: "Samir Adhiakri"}, {new: true}) 
+     res.send(updatedUser);
+ })
+ 
+
 app.listen(3000)
