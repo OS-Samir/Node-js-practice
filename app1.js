@@ -14,4 +14,8 @@ app.get("/", (req, res) =>  {
 app.get("/read", (req, res) =>  {
     res.render("read")
 })
+app.post("/create", (req, res) =>  {
+    res.render("read")
+})
+
 app.listen(3000)

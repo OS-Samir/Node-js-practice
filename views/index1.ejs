@@ -14,10 +14,10 @@
 
         </div>
         <h1 class="text-3xl tracking-lighter mb-3">Create user</h1>
-        <form action="">
-            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" placeholder="Enter your name">
-            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" placeholder="Enter your email">
-            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" placeholder="image url">
+        <form action="/create" method="post">
+            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name="name" placeholder="Enter your name">
+            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name="email" placeholder="Enter your email">
+            <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name = "image" placeholder="image url">
             <input class="px-5 py-3  outline-none border-2 bg-green-500 border-blue-800 ml-3 rounded-lg" type="submit" value="Create user">
 
         </form>
