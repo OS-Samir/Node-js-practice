@@ -18,7 +18,7 @@ app.get("/read", (req, res) =>  {
     res.render("read")
 })
 app.post("/create", async (req, res) =>  {
-    let {name, username, image} = req.body;
+    let {name, email, image} = req.body;
 
    let createdUser =  await userModel.create(
         {
