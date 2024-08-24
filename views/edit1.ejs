@@ -14,7 +14,7 @@
 
         </div>
         <h1 class="text-3xl tracking-lighter mb-3">Update user</h1>
-        <form action="/create" method="post">
+        <form action="/update/<%=user._id %>" method="post">
             <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name="name" placeholder="Enter your name" value="<%=user.name %>">
             <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name="email" placeholder="Enter your email" value="<%=user.email %>">
             <input class="px-5 py-3 bg-transparent outline-none border-2 border-green-800 rounded-lg" type="text" name = "image" placeholder="image url" value="<%=user.image %>">
