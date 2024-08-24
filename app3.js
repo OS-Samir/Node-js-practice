@@ -1,6 +1,9 @@
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const app = express();
-const cookie = require('cookie')
+
+
+app.use(cookieParser())
 
 app.get('/', function(req, res){
     res.cookie("name", "samir")
@@ -9,6 +12,7 @@ app.get('/', function(req, res){
 
 
 app.get('/read', function(req, res){
+    console.table(req.cookies)
     res.send("Read Page")
 })
 
