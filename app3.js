@@ -5,10 +5,12 @@
 // Bycrpt provides encryption and decryption
 // Salt is random string
 // Salt is mixed with hash which generates random string that prevents password decryption
+// We use SHA256 algorithm to encrypt password
 
 const express = require('express')
 const PORT = 3000;
 const app = express()
+const bcrypt = require('bcrypt')
 // const cookieParser = require('cookie-parser')
 // app.use(cookieParser())
 
@@ -24,6 +26,18 @@ const app = express()
 
 // })
 
+app.get("/", function (req, res) {
+    // bcrypt.genSalt(10, function(err, salt) {
+    //     bcrypt.hash("samir123", salt, function(err, hash){  
+    //         console.log(hash);
+    //     })
+    //     // console.log(salt);  
+    // })
+
+    bcrypt.compare("samir123", "$2b$10$da6rEumi/5HE9PUl7XoXF.NmQ9AlS1zWISpLdJTasNRH6QLOTLcxa", function (err, result) { // check if hash password and plain password are equal or not
+        console.log(result)
+    })
+})
 
 
 app.listen(PORT)
