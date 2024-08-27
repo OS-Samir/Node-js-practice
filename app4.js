@@ -1,3 +1,4 @@
+
 const express = require('express')
 const app = express()
 const PORT = 3000;
@@ -25,20 +26,28 @@ app.get("/login", (req, res) => {
 
 app.post("/login", async (req, res) => {
     let user = await userModel.findOne({email: req.body.email})
-    if(!user) return res.send("email or password is incorrect")
-    console.log(user)
+    if(!user) res.send("Email or password is incorrect")
+
+    bcrypt.compare(req.body.password, user.password, function (err, result){
+        if(result) {
+            let token = jwt.sign({email: user.email}, "samiirr");
+            res.cookie("token", token)
+            res.send("you are logged in login");
+        }
+        else res.send("something is wrong");
+    })
+
 });
 
-app.post('/create',  async (req, res) => {
-let {username, email, password, age} = req.body;
-
-app.get("/logout", function(req, res) {
+app.get("/logout", function (req, res) {
     res.cookie("token", "")
     res.redirect("/")
 })
 
+app.post('/create',  async (req, res) => {
+let {username, email, password, age} = req.body;
 bcrypt.genSalt (10,  (err, salt) => {
-    bcrypt.hash(password, salt,  async (err, hash) => {
+    bcrypt.hash( password, salt,  async (err, hash) => {
         let createdUser =  await userModel.create({
             username,
             email,
@@ -48,7 +57,7 @@ bcrypt.genSalt (10,  (err, salt) => {
 
        let token = jwt.sign({email}, "samiirr");
        res.cookie("token", token)
-        res.send(createdUser);
+       res.send(createdUser);
        
     })
 })
@@ -56,6 +65,7 @@ bcrypt.genSalt (10,  (err, salt) => {
 
 });
 
-app.listen(PORT)
 
-console.log(`App is listening on http://localhost:${PORT}`)
+app.listen(PORT, () => {
+    console.log(`App is listening on http://localhost:${PORT}`);
+});
