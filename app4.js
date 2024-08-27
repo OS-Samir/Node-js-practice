@@ -26,7 +26,7 @@ app.get("/login", (req, res) => {
 app.post("/login", async (req, res) => {
     let user = await userModel.findOne({email: req.body.email})
     if(!user) return res.send("email or password is incorrect")
-    console.log(user.password)
+    console.log(user)
 });
 
 app.post('/create',  async (req, res) => {
