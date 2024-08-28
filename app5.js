@@ -14,10 +14,12 @@ app.get("/create", async function (req, res)  {
         username: "Samir",
         age: 22,
         email: "samir972@gmail.com",
+        
     });
-
+    console.log(user);
     res.send(user);
 })
+
 
 app.get("/post/create", async function (req, res)  {
   let post = await postModel.create({
