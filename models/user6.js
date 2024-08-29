@@ -9,7 +9,7 @@ const userSchema = mongoose.Schema({
     email: String,
     password: String,
     posts: [
-        {type: mongoose.Schema.Types.ObjectId, ref: 'post6'}
+        {type: mongoose.Schema.Types.ObjectId, ref: 'post'}
     ]
 })
 

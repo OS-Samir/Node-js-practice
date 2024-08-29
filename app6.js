@@ -5,7 +5,8 @@ const userModel = require("./models/user6");
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
-const usermodel = require('./usermodel');
+
+
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -41,5 +42,5 @@ app.post("/register", async (req, res) => {
 
 
 app.listen(PORT, () => {
-console.log(`App is listening on ${PORT}`)
+console.log(`App is listening on http://localhost:${PORT}`)
 })
