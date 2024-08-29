@@ -5,6 +5,7 @@ const userModel = require("./models/user6");
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
+const usermodel = require('./usermodel');
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -15,29 +16,30 @@ app.get("/", (req, res) => {
    res.render("index6")
 })
 
+
 app.post("/register", async (req, res) => {
     let {email, password, username, name, age} = req.body;
     let user = await userModel.findOne({email});
-    if(user) return res.status(500).send("User already registered");
+    if (user) return res.status(500).send("User already registered")
 
     bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(password, salt, async (err, hash) => {
-        let user = await userModel.create({
-            username, 
-            email, 
-            age, 
-            name, 
-            password: hash,
-        })
-        
-        let token = jwt.sign({email: user.email, user: user._id}, "samir");
-        
-        })
-        
+        bcrypt.hash(password, salt, async(err, hash) => {
+            let user = await userModel.create({
+                username, 
+                email,
+                age,
+                name, 
+                password: hash
+            })
+
+            let token = jwt.sign({email: user.email, userid: user._id}, "shhh")
+            res.cookie("token", token);
+            res.send("User registered")
+        } )
     })
 })
 
 
-app.listen(3000, () => {
-    console.log(`App is listening on http://localhost:${PORT}`)
+app.listen(PORT, () => {
+console.log(`App is listening on ${PORT}`)
 })
