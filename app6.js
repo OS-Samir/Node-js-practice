@@ -3,6 +3,7 @@ const app = express();
 const PORT = 3000;
 const userModel = require("./models/user6");
 const cookieParser = require('cookie-parser')
+const postModel = require('./models/post6')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 
