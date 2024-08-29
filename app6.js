@@ -26,7 +26,8 @@ app.post("/register", async (req, res) => {
             email, 
             age, 
             name, 
-            password: hash
+            password: hash,
+
         })
         console.log(user);
         })
