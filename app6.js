@@ -21,6 +21,12 @@ app.get("/", (req, res) => {
 app.get("/login", (req, res) => {
     res.render("login6")
  })
+
+
+app.get("/profile", isLoggedIn, (req, res) => {
+    console.log(req.user)
+    res.render("login6")
+ })
  
  app.get("/logout", (req, res) => {
     res.cookie("token", "")
@@ -31,8 +37,10 @@ app.get("/login", (req, res) => {
     if(req.cookies.token === "") res.send("You must be logged in")
     else {
        let data = jwt.verify(req.cookies.token, "shhh")
+       req.user = data
+       next();
         }
-    next();
+   
  }
  
 
@@ -66,7 +74,12 @@ app.post("/login", async (req, res) => {
     if (!user) return res.status(400).send("something went wrong")
 
     bcrypt.compare(password, user.password, function (err, result){
-        if (result) return res.status(200).send("login successful")
+        if (result)  {
+            let token = jwt.sign({email: user.email, userid: user._id}, "shhh")
+            res.cookie("token", token);
+            res.status(200).send("you are logged in")
+        
+        }
         else res.redirect("./login")
     })
 })
