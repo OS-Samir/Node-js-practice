@@ -4,6 +4,7 @@ const PORT = 3000;
 const userModel = require("./models/user6");
 const cookieParser = require('cookie-parser')
 const bcrypt = require('bcrypt');
+const jwt = require("jsonwebtoken");
 
 app.set("view engine", "ejs");
 app.use(express.json());
@@ -27,9 +28,10 @@ app.post("/register", async (req, res) => {
             age, 
             name, 
             password: hash,
-
         })
-        console.log(user);
+        
+        let token = jwt.sign({email: user.email, user: user._id}, "samir");
+        
         })
         
     })
