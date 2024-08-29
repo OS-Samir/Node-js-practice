@@ -15,12 +15,22 @@ app.get("/", (req, res) => {
 })
 
 app.post("/register", async (req, res) => {
-    // let {email, password, username, name, age} = req.body;
-    // let user = await userModel.findOne({email});
-    // if(user) return res.status(500).send("User already registered");
+    let {email, password, username, name, age} = req.body;
+    let user = await userModel.findOne({email});
+    if(user) return res.status(500).send("User already registered");
 
     bcrypt.genSalt(10, (err, salt) => {
-        console.log(salt);
+        bcrypt.hash(password, salt, async (err, hash) => {
+        let user = await userModel.create({
+            username, 
+            email, 
+            age, 
+            name, 
+            password: hash
+        })
+        console.log(user);
+        })
+        
     })
 })
 
