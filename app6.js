@@ -49,7 +49,7 @@ app.post("/register", async (req, res) => {
     if (user) return res.status(500).send("User already registered")
 
     bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(password, salt, async(err, hash) => {
+        bcrypt.hash(password, salt, async (err, hash) => {
             let user = await userModel.create({
                 username, 
                 email,
