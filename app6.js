@@ -39,8 +39,7 @@ app.get("/profile", isLoggedIn, (req, res) => {
        let data = jwt.verify(req.cookies.token, "shhh")
        req.user = data
        next();
-        }
-   
+        }  
  }
  
 
