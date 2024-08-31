@@ -33,6 +33,9 @@ app.get("/profile", isLoggedIn, (req, res) => {
     res.redirect("/login")
  })
 
+app.post("/create/post", isLoggedIn(), (req, res) => {
+    res.render("post6")
+})
  function isLoggedIn(req, res, next) {
     if(req.cookies.token === "") res.send("You must be logged in")
     else {
