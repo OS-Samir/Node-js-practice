@@ -28,6 +28,17 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     console.log(user)
     res.render("profile6", {user})
  })
+
+ app.post("/profile", isLoggedIn, async (req, res) => {
+    let user = await userModel.findOne({ email: req.user.email })
+    let {content} = req.body
+ let post = await postModel.create({
+    user: user._id,
+    content
+   })
+   
+   user.posts.push(post._id);
+ })
  
  app.get("/logout", (req, res) => {
     res.cookie("token", "")

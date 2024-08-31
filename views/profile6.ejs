@@ -13,8 +13,8 @@
     </div>
     <h3 class="text-3xl mb-3"><span class="font-bold">Hello </span>, <%= user.name %> 😊 </h3>
     <h5 class="mb-5">You can create a new post</h5>
-    <form action="">
-        <textarea placeholder="What's on your mind?" class="w-1/3 resize-none bg-white text-zinc-800 p-4 px-3 border-2 border-green-900 outline-none rounded-md" name="" ></textarea>
+    <form action="/post" method="post">
+        <textarea placeholder="What's on your mind?" class="w-1/3 resize-none bg-white text-zinc-800 p-4 px-3 border-2 border-green-900 outline-none rounded-md" name="content" ></textarea>
         <input class="px-4 py-3 bg-blue-500 rounded-lg block md-2 w-40" type="submit" value="Create new post">
     </form>
     <div class="posts mt-20">
