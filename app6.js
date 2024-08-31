@@ -23,9 +23,10 @@ app.get("/login", (req, res) => {
  })
 
 
-app.get("/profile", isLoggedIn, (req, res) => {
-    // console.log(req.user)
-    res.render("login6")
+app.get("/profile", isLoggedIn, async (req, res) => {
+    let user = await userModel.findOne({ email: req.user.email })
+    console.log(user)
+    res.render("profile6", {user})
  })
  
  app.get("/logout", (req, res) => {
@@ -33,16 +34,14 @@ app.get("/profile", isLoggedIn, (req, res) => {
     res.redirect("/login")
  })
 
-app.post("/create/post", isLoggedIn(), (req, res) => {
-    res.render("post6")
-})
- function isLoggedIn(req, res, next) {
-    if(req.cookies.token === "") res.send("You must be logged in")
+
+ function isLoggedIn (req, res, next) {
+    if(req.cookies.token === "") res.redirect("/login")
     else {
        let data = jwt.verify(req.cookies.token, "shhh")
        req.user = data
        next();
-        }  
+    }  
  }
  
 
@@ -79,10 +78,10 @@ app.post("/login", async (req, res) => {
         if (result)  {
             let token = jwt.sign({email: user.email, userid: user._id}, "shhh")
             res.cookie("token", token);
-            res.status(200).send("you are logged in")
+            res.status(200).render("profile6")
         
         }
-        else res.redirect("./login")
+        else res.redirect("/login")
     })
 })
 
