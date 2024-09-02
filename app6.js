@@ -28,6 +28,17 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     res.render("profile6", {user})
  })
 
+ app.get("/like/:id", isLoggedIn, async (req, res) => {
+    let post = await postModel.findOne({_id: req.params.id }).populate("user");
+
+    if (post.likes.indexOf(req.user.userid) === -1) {
+        post.likes.push(req.user.userid);
+    }
+    else {
+       post.likes.splice( post.likes.indexOf(req.user.userid), 1 )
+    }
+ })
+
  app.post("/post", isLoggedIn, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email })
     let {content} = req.body
@@ -35,6 +46,12 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     user: user._id,
     content
    })
+
+
+//    app.get('/edit/:filename', function (req, res) {
+//     res.render('edit', {filename: req.params.filename});
+      
+//    })
 
    user.posts.push(post._id);
    await user.save();

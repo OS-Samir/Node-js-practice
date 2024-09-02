@@ -25,7 +25,7 @@
                     <h4 class="text-blue-600 mb-2">@<%= user.username %></h4> 
                     <p class="text-sm tracking-tight"> <%= post.content %> </p>
                     <div class="btns flex gap-4 mt-5">
-                     <a class="text-blue-600" href="">Like</a>
+                     <a class="text-blue-600" href="/like/<%= post._id %>">Like</a>
                      <a class="text-zinc-600" href="">Edit</a>
                     </div>
                  </div>
