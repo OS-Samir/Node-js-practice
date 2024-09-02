@@ -49,6 +49,12 @@ app.get("/profile", isLoggedIn, async (req, res) => {
 
 })
 
+app.post("/update/:id", isLoggedIn, async (req, res) => {
+    let post = await postModel.findOneAndUpdate({_id: req.params.id }, {content: req.body.content})
+    res.redirect("/profile")
+
+})
+
  app.post("/post", isLoggedIn, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email })
     let {content} = req.body
