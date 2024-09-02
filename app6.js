@@ -42,6 +42,13 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     res.redirect("/profile");
  })
 
+
+ app.get("/edit/:id", isLoggedIn, async (req, res) => {
+    let post = await postModel.findOne({_id: req.params.id }).populate("user");
+    res.render("edit6", {post});
+
+})
+
  app.post("/post", isLoggedIn, async (req, res) => {
     let user = await userModel.findOne({ email: req.user.email })
     let {content} = req.body
