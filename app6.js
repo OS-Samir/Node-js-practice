@@ -37,7 +37,7 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     else {
        post.likes.splice(post.likes.indexOf(req.user.userid), 1 )
     }
-
+    // console.log(post)
     await post.save();
     res.redirect("/profile");
  })
