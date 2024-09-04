@@ -6,9 +6,9 @@ const cookieParser = require('cookie-parser')
 const postModel = require('./models/post6')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
-const crypto = require('crypto');
-const path = require('path');
-const multer = require('multer');
+// const crypto = require('crypto');
+// const path = require('path');
+// const multer = require('multer');
 
 
 app.set("view engine", "ejs");
@@ -17,33 +17,33 @@ app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
 
 
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, './views/public/images/uploads')
-    },
+// const storage = multer.diskStorage({
+//     destination: function (req, file, cb) {
+//       cb(null, './views/public/images/uploads')
+//     },
 
-    filename: function (req, file, cb) { 
-    crypto.randomBytes(12, function  (err, bytes) {
-        const fn = bytes.toString("hex") + path.extname(file.originalname);
-        cb(null, fn)
-    })
-  }
-  })
+//     filename: function (req, file, cb) { 
+//     crypto.randomBytes(12, function  (err, bytes) {
+//         const fn = bytes.toString("hex") + path.extname(file.originalname);
+//         cb(null, fn)
+//     })
+//   }
+//   })
   
-  const upload = multer({ storage: storage })
+//   const upload = multer({ storage: storage })
 
 app.get("/", (req, res) => {
    res.render("index6")
 })
 
-app.get("/test", (req, res) => {
-    res.render("test6")
- })
+// app.get("/test", (req, res) => {
+//     res.render("test6")
+//  })
 
 
- app.post("/upload", upload.single("image"), (req, res) => {
-    console.log(req.file)
- })
+//  app.post("/upload", upload.single("image"), (req, res) => {
+//     console.log(req.file)
+//  })
 
 
 app.get("/login", (req, res) => {
