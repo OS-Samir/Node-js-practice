@@ -10,6 +10,8 @@ const jwt = require("jsonwebtoken");
 // const path = require('path');
 // const multer = require('multer');
 
+const multerconfig = require('./config/multerconfig')
+
 
 app.set("view engine", "ejs");
 app.use(express.json());
