@@ -7,45 +7,34 @@ const postModel = require('./models/post6')
 const bcrypt = require('bcrypt');
 const jwt = require("jsonwebtoken");
 // const crypto = require('crypto');
-// const path = require('path');
-// const multer = require('multer');
 
-const multerconfig = require('./config/multerconfig')
+// const multer = require('multer');
+const path = require('path');
+const upload = require('./config/multerconfig')
 
 
 app.set("view engine", "ejs");
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cookieParser());
-
-
-// const storage = multer.diskStorage({
-//     destination: function (req, file, cb) {
-//       cb(null, './views/public/images/uploads')
-//     },
-
-//     filename: function (req, file, cb) { 
-//     crypto.randomBytes(12, function  (err, bytes) {
-//         const fn = bytes.toString("hex") + path.extname(file.originalname);
-//         cb(null, fn)
-//     })
-//   }
-//   })
-  
-//   const upload = multer({ storage: storage })
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get("/", (req, res) => {
    res.render("index6")
 })
 
-// app.get("/test", (req, res) => {
-//     res.render("test6")
-//  })
+app.get("/profile/upload", (req, res) => {
+    res.render("profileupload6")
+ })
 
 
-//  app.post("/upload", upload.single("image"), (req, res) => {
-//     console.log(req.file)
-//  })
+ app.post("/upload", isLoggedIn, upload.single("image"), async (req, res) => {
+    let user = await userModel.findOne({email: req.user.email})
+    user.profilepic = req.file.filename;
+    await user.save();
+    res.redirect("/profile")
+ })
+
 
 
 app.get("/login", (req, res) => {
@@ -67,7 +56,7 @@ app.get("/profile", isLoggedIn, async (req, res) => {
     else {
        post.likes.splice(post.likes.indexOf(req.user.userid), 1 )
     }
-    // console.log(post)
+   
     await post.save();
     res.redirect("/profile");
  })
@@ -93,12 +82,6 @@ app.post("/update/:id", isLoggedIn, async (req, res) => {
     content,
   
    })
-
-
-//    app.get('/edit/:filename', function (req, res) {
-//     res.render('edit', {filename: req.params.filename});
-      
-//    })
 
    user.posts.push(post._id);
    await user.save();
