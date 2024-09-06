@@ -25,6 +25,7 @@ app.get("/", (req, res) => {
 
 app.get("/profile/upload", (req, res) => {
     res.render("profileupload6")
+    console.log("working")
  })
 
 
