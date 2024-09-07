@@ -13,7 +13,7 @@
     </div>
     <div class="flex items-start gap-3">
         <div class="w-10 h-10 rounded-md overflow-hidden ">
-            <img class="w-full h-full object-cover" src="/images/uploads/ <%= user.profilepic %>" alt="profile image">
+            <img id="profilepic" class=" w-full h-full object-cover" src="/images/uploads/<%= user.profilepic %>" alt="">
         </div>
         <h3 class="text-3xl mb-3"><span class="font-bold">Hello </span>, <%= user.name %> 😊 </h3>
     </div>
@@ -42,6 +42,15 @@
         </div>
     </div>
     </div>
-
+<script>
+    const profilePicElement = document.getElementById('profilepic');
+  let img =  profilePicElement.src;
+    if (img) {
+        console.log(img);
+    }
+    else (err) => {
+        console.log(err);
+    }
+</script>
 </body>
 </html>
